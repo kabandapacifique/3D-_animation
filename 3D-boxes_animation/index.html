@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/fontawesome-free-6.6.0-web/css/all.css">
+    <title>3D-Boxes</title>
+</head>
+<body>
+    <button id="btn" class="play">Click to play!! <i class="fas fa-basketball"></i></button>
+
+    <div id="boxes" class="boxes big"> </div>
+    
+    <script>
+        const boxContainer = document.getElementById('boxes')
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener('click', () => boxContainer.classList.toggle('big'))
+
+        function createBoxes() {
+            for (let i = 0; i < 4; i++) {
+                for (let j =0 ; j < 4; j++) {
+                    const box = document.createElement('div')
+                    box.classList.add('box')
+                    box.style.backgroundPosition = `${-j * 100}px ${-i * 100}px`
+                    boxContainer.appendChild(box)
+                    // console.log(box)
+                }
+            }
+        }
+
+        createBoxes()
+    </script>
+</body>
+</html>
